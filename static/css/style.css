@@ -1,0 +1,15 @@
+@media (min-width: 1400px) {
+    main,
+    header,
+    #main-navbar {
+        padding-left: 70px;
+    }
+}
+
+@media (max-width: 1400px) {
+    main,
+    header,
+    #main-navbar {
+        padding-left: 0px;
+    }
+}

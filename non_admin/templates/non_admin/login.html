@@ -1,0 +1,51 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block css_links %}
+<link rel="stylesheet" href="{% static 'non_admin/css/index.css' %}">
+{% endblock css_links %}
+
+{% block header %}
+    {% include 'non_admin/navbar.html' %}
+{% endblock header %}
+
+{% block content %}
+<!-- Main -->
+<main style="height:100vh">
+    <div class="container" style="height:100vh">
+        <div class="row" style="height:100vh">
+            <div class="col-12 justify-content-center align-items-center d-flex">
+                <div class="card" style="width: 350px">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-5">Sign In</h5>
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="form-outline mb-3">
+                                <input type="text" id="form1" class="form-control" />
+                                <label class="form-label" for="form1">Email</label>
+                            </div>
+                            <div class="form-outline mb-3">
+                                <input type="password" id="form1" class="form-control" />
+                                <label class="form-label" for="form1">Password</label>
+                            </div>
+                            <button class="btn btn-block btn-rounded bg-dark text-white">Sign In</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Main -->
+{% endblock content %}
+
+{% block footer %}
+    {% include 'non_admin/footer.html' %}
+{% endblock footer %}
+
+{% block modal %}
+    {% include 'non_admin/about_us.html' %}
+    {% include 'non_admin/contact_us.html' %}
+{% endblock modal %}
