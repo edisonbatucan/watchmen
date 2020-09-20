@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block css_links %}
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+{% endblock css_links %}
+
+{% block header %}
+    {% include 'admin/sidebar.html' %}
+{% endblock header %}
+
+{% block content %}
+    <main class="my-5 py-5">
+        <div class="container mt-3">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="display-6 text-center font-weight-bold">{{type}} Registration</p>
+                </div>
+            </div>
+            {% for error, message in errors.items %}
+                <p class="text-danger">*{{message}}</p>            
+            {% endfor %}
+            {% block formregister %}
+            {% endblock formregister %}
+        </div>
+    </main>
+{% endblock content %}
+
+{% block js_links %}
+    <script src="{% static 'js/sidebar.js' %}"></script>
+{% endblock js_links %}

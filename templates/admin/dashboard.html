@@ -1,0 +1,77 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block css_links %}
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+{% endblock css_links %}
+
+{% block header %}
+    {% include 'admin/sidebar.html' %}
+{% endblock header %}
+
+{% block content %}
+    <main class="my-5 py-5">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-outline datepicker">
+                                <input type="text" name="" id="dateFrom" class="form-control">
+                                <label for="dateFrom" class="form-label">From - Date Created</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-outline datepicker">
+                                <input type="text" name="" id="dateTo" class="form-control">
+                                <label for="dateTo" class="form-label">To - Date Created</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="form-outline">
+                                <input type="text" name="" id="tableSearch" class="form-control">
+                                <label for="tableSearch" class="form-label">Search</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-dark btn-rounded">Excel</button>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <a class="btn btn-dark btn-rounded" href="{% if type == 'watch' %}{% url 'watch_reg' %}{% else %}{% url 'customer_reg' %}{% endif %}">
+                                <i class="fas fa-plus mr-1"></i>Add
+                            </a>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <div class="datatable" id="datatable">
+                        <table>
+                            <thead>
+                                {% block columns %}{% endblock columns %}
+                            </thead>
+                            <tbody>
+                                {% block rows %}{% endblock rows %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+{% block js_links %}
+<script src="{% static 'js/sidebar.js' %}"></script>
+<script src="{% static 'js/searchDatatable.js' %}"></script>
+{% comment %} <script src="{% static 'js/dateFilter.js' %}"></script> {% endcomment %}
+{% endblock js_links %}

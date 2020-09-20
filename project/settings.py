@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'non_admin.apps.NonAdminConfig',
-    # 'admin.apps.AdminConfig',
     'customer.apps.CustomerConfig',
     'watch.apps.WatchConfig',
     'django.contrib.admin',
@@ -132,3 +131,5 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
+
+AUTH_USER_MODEL = 'customer.CustomUser'

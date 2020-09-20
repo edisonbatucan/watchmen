@@ -1,0 +1,30 @@
+{% extends 'admin/register.html' %}
+
+{% block formregister %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+            <div class="form-outline mb-4">
+                <input type="text" name="name" id="nameInput" class="form-control" value="{% if name %}{{name}}{% endif %}" required>
+                <label for="nameInput" class="form-label">Name</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" name="brand" id="brandInput" class="form-control" value="{% if brand %}{{brand}}{% endif %}" required>
+                <label for="brandInput" class="form-label">Brand</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-outline mb-4">
+                <input type="text" name="price" id="priceInput" class="form-control" value="{% if price %}{{price}}{% endif %}" required>
+                <label for="priceInput" class="form-label">Price</label>
+            </div>
+            <div class="form-outline mb-4">
+                <textarea type="email" name="description" id="descInput" rows="4" class="form-control" value="{% if description %}{{description}}{% endif %}" required></textarea>
+                <label for="descInput" class="form-label">Description</label>
+            </div>
+            <button type="submit" class="btn btn-block btn-dark">Add Product</button>
+        </div>
+    </div>
+</form>
+{% endblock formregister %}

@@ -1,0 +1,49 @@
+{% extends 'admin/dashboard.html' %}
+
+{% block columns %}
+    <tr>
+        <th class="th-sm">Date Created</th>
+        <th class="th-sm">Name</th>
+        <th class="th-sm">Email</th>
+        <th class="th-sm">Gender</th>
+        <th class="th-sm">Age</th>
+        <th class="th-sm">Last Login</th>
+        <th class="th-sm">Actions</th>
+    </tr>
+{% endblock columns %}
+
+{% block rows %}
+    {% for customer in customer_list %}
+        <tr>
+            <td>{{ customer.date_joined | date:"SHORT_DATE_FORMAT" }}</td>
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.gender }}</td>
+            <td>{{ customer.age }}</td>
+            <td>{{ customer.last_login | date:"SHORT_DATE_FORMAT" }}</td>
+            <td>
+                <button
+                    class="btn btn-outline-dark btn-floating btn-sm"
+                    data-ripple-color="dark"
+                    data-toggle="modal"
+                    data-target="#modalEdit{{customer.id}}"
+                >
+                    <i class="far fa-user-edit"></i>
+                </button>
+                <button
+                    class="btn btn-outline-danger btn-floating btn-sm ml-2"
+                    data-ripple-color="dark"
+                    data-toggle="modal"
+                    data-target="#modalDel{{customer.id}}"
+                >
+                    <i class="far fa-user-minus"></i>
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock rows %}
+
+{% block modal %}
+    {% include 'customer/customerEdit.html' %}
+    {% include 'customer/customerDelete.html' %}
+{% endblock modal %}

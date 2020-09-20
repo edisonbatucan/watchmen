@@ -1,0 +1,47 @@
+{% extends 'admin/dashboard.html' %}
+
+{% block columns %}
+    <tr>
+        <th class="th-sm">Date Created</th>
+        <th class="th-sm">Name</th>
+        <th class="th-sm">Brand</th>
+        <th class="th-sm">Price</th>
+        <th class="th-sm">Description</th>
+        <th class="th-sm">Actions</th>
+    </tr>
+{% endblock columns %}
+
+{% block rows %}
+    {% for watch in watch_list %}
+        <tr>
+            <td>{{ watch.date_created | date:"SHORT_DATE_FORMAT" }}</td>
+            <td>{{ watch.name }}</td>
+            <td>{{ watch.brand }}</td>
+            <td>P{{ watch.price }}</td>
+            <td>{{ watch.description }}</td>
+            <td>
+                <button
+                    class="btn btn-outline-dark btn-floating btn-sm"
+                    data-ripple-color="dark"
+                    data-toggle="modal"
+                    data-target="#modalEdit{{watch.id}}"
+                >
+                    <i class="far fa-user-edit"></i>
+                </button>
+                <button
+                    class="btn btn-outline-danger btn-floating btn-sm ml-2"
+                    data-ripple-color="dark"
+                    data-toggle="modal"
+                    data-target="#modalDel{{watch.id}}"
+                >
+                    <i class="far fa-user-minus"></i>
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+{% endblock rows %}
+
+{% block modal %}
+    {% include 'watch/watchEdit.html' %}
+    {% comment %} {% include 'watch/watchDelete.html' %} {% endcomment %}
+{% endblock modal %}

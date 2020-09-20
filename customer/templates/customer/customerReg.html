@@ -1,0 +1,47 @@
+{% extends 'admin/register.html' %}
+
+{% block formregister %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+            <div class="form-outline mb-4">
+                <input type="text" name="first_name" id="firstName" class="form-control" value="{% if first_name %}{{first_name}}{% endif %}" required>
+                <label for="firstName" class="form-label">First Name</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" name="last_name" id="lastName" class="form-control" value="{% if last_name %}{{last_name}}{% endif %}" required>
+                <label for="lastName" class="form-label">Last Name</label>
+            </div>
+            <select name="gender" id="" class="select" selected="{% if gender %}{{gender}}{% endif %}">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+            <label class="form-label select-label">Gender</label>
+            <div class="form-outline datepicker mt-4" data-toggle-button="false">
+                <input type="text" name="date_of_birth" id="dateBirth" class="form-control" value="{% if date_of_birth %}{{date_of_birth}}{% endif %}" required data-toggle="datepicker">
+                <label for="dateBirth" class="form-label">Date of Birth</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-outline mb-4">
+                <input type="text" name="address" id="addressInput" class="form-control" value="{% if address %}{{address}}{% endif %}" required>
+                <label for="addressInput" class="form-label">Address</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="email" name="email" id="emailInput" class="form-control" value="{% if email %}{{email}}{% endif %}" required>
+                <label for="emailInput" class="form-label">Email</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="password" name="password1" id="passwordInput" class="form-control" required>
+                <label for="passwordInput" class="form-label">Password</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="password" name="password2" id="passwordInput" class="form-control" required>
+                <label for="passwordInput" class="form-label">Confirm Password</label>
+            </div>
+            <button type="submit" class="btn btn-block btn-dark">Register</button>
+        </div>
+    </div>
+</form>
+{% endblock formregister %}

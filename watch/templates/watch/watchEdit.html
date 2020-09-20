@@ -1,0 +1,54 @@
+{% for watch in watch_list %}
+    <div 
+        class="modal fade" 
+        id="modalEdit{{watch.id}}"
+        tabindex="-1"
+        aria-labelledby="modalEditLabel{{watch.id}}"
+        aria-hidden="true"
+    >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditLabel{{watch.id}}">Watch Edit</h5>
+                    <button 
+                        type="button" 
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
+                        <span aria-hidded="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="object_id" value="{{watch.id}}">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-outline mb-4">
+                                    <input type="text" name="name" id="nameInput" class="form-control" value="{{watch.name}}">
+                                    <label for="fnameInput" class="form-label">Name</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="text" name="brand" id="brandInput" class="form-control" value="{{watch.brand}}">
+                                    <label for="brandInput" class="form-label">Brand</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="text" name="price" id="priceInput" class="form-control" value="{{watch.price}}">
+                                    <label for="priceInput" class="form-label">Price</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="text" name="description" id="descInput" class="form-control" value="{{watch.description}}">
+                                    <label for="descInput" class="form-label">Description</label>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-dark mb-4">
+                            Save
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
