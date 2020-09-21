@@ -23,6 +23,7 @@
                     <form action="" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="object_id" value="{{customer.id}}">
+                        <input type="hidden" name="type_of_form" value="reg">
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-outline mb-4">
@@ -36,6 +37,10 @@
                                 <div class="form-outline mb-4">
                                     <input type="email" name="email" id="emailInput" class="form-control" value="{{customer.email}}">
                                     <label for="emailInput" class="form-label">Email</label>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <input type="text" name="phone" id="phoneInput" class="form-control" value="{% if phone %}{{phone}}{% endif %}" required>
+                                    <label for="phoneInput" class="form-label">Phone</label>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -52,11 +57,11 @@
                                     <input type="text" name="address" id="addressInput" class="form-control" value="{{customer.address}}">
                                     <label for="addressInput" class="form-label">Address</label>
                                 </div>
+                                <button type="submit" class="btn btn-block btn-dark mb-4">
+                                    Save
+                                </button>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-block btn-dark mb-4">
-                            Save
-                        </button>
                     </form>
                 </div>
             </div>

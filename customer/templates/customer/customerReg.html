@@ -1,4 +1,5 @@
 {% extends 'admin/register.html' %}
+{% load static %}
 
 {% block formregister %}
 <form action="" method="post">
@@ -18,9 +19,13 @@
                 <option value="F">Female</option>
             </select>
             <label class="form-label select-label">Gender</label>
-            <div class="form-outline datepicker mt-4" data-toggle-button="false">
+            <div class="form-outline datepicker my-4" data-toggle-button="false">
                 <input type="text" name="date_of_birth" id="dateBirth" class="form-control" value="{% if date_of_birth %}{{date_of_birth}}{% endif %}" required data-toggle="datepicker">
                 <label for="dateBirth" class="form-label">Date of Birth</label>
+            </div>
+            <div class="form-outline mb-4">
+                <input type="text" name="phone" id="phoneInput" class="form-control" value="{% if phone %}{{phone}}{% endif %}" required>
+                <label for="phoneInput" class="form-label">Phone</label>
             </div>
         </div>
         <div class="col-6">
@@ -33,12 +38,12 @@
                 <label for="emailInput" class="form-label">Email</label>
             </div>
             <div class="form-outline mb-4">
-                <input type="password" name="password1" id="passwordInput" class="form-control" required>
-                <label for="passwordInput" class="form-label">Password</label>
+                <input type="password" name="password1" id="passwordInput1" class="form-control" required>
+                <label for="passwordInput1" class="form-label">Password</label>
             </div>
             <div class="form-outline mb-4">
-                <input type="password" name="password2" id="passwordInput" class="form-control" required>
-                <label for="passwordInput" class="form-label">Confirm Password</label>
+                <input type="password" name="password2" id="passwordInput2" class="form-control" required>
+                <label for="passwordInput2" class="form-label">Confirm Password</label>
             </div>
             <button type="submit" class="btn btn-block btn-dark">Register</button>
         </div>
