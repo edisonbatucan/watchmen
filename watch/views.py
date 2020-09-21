@@ -13,14 +13,14 @@ class WatchDashboardView(View):
         # return render(request, self.template_name, context)
         return render(request, self.template_name)
     
-    def post(self, request):
-        id = request.POST.get('object_id')
-        watch = get_object_or_404(Watch, id = id)
-        form = WatchForm(request.POST, instance=watch)
+    # def post(self, request):
+    #     id = request.POST.get('object_id')
+    #     watch = get_object_or_404(Watch, id = id)
+    #     form = WatchForm(request.POST, instance=watch)
         
-        if form.is_valid():
-            form.save()
-        return redirect('/admin/watch/')
+    #     if form.is_valid():
+    #         form.save()
+    #     return redirect('/admin/watch/')
     
 class WatchRegisterView(View):
     template_name = 'watch/watchReg.html'
