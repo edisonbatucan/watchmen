@@ -22,6 +22,8 @@
                 <div class="modal-body text-center">
                     <form action="" method="post">
                         {% csrf_token %}
+                        <input type="hidden" name="object_id" value="{{customer.id}}">
+                        <input type="hidden" name="type_of_form" value="del">
                         <button type="submit" class="btn btn-block btn-danger mb-4">
                             Delete
                         </button>
