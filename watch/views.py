@@ -8,9 +8,10 @@ class WatchDashboardView(View):
     template_name = 'watch/watch.html'
 
     def get(self, request):
-        watch = Watch.objects.all()
-        context = { 'watch_list': watch, 'title': 'Dashboard', 'type': 'watch' }
-        return render(request, self.template_name, context)
+        # watch = Watch.objects.all()
+        # context = { 'watch_list': watch, 'title': 'Dashboard', 'type': 'watch' }
+        # return render(request, self.template_name, context)
+        return render(request, self.template_name)
     
     def post(self, request):
         id = request.POST.get('object_id')
