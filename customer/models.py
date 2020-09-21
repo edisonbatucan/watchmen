@@ -16,7 +16,8 @@ class CustomUser(AbstractUser):
     date_of_birth = models.DateField(blank = True, null = True)
     gender = models.CharField(max_length = 1, choices = GENDER_CHOICES)
     address = models.CharField(max_length = 200)
-    
+    phone = models.CharField(max_length = 15, null = True)
+
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['first_name', 'last_name', 'gender']
 
